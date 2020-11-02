@@ -1,0 +1,193 @@
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+/* How to create a login page with HTML CSS and Javascript */
+
+
+body{
+	background: black;
+	font-family: 'Exo', sans-serif;
+	background-image: url('../LOGO.png') ;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.row{
+    margin:0px;
+}
+
+.logo{
+    color:rgb(125, 20, 0);
+}
+
+.logo:hover {
+    opacity: 0.8;
+    color:rgb(245, 6, 6);
+}
+
+.ajouterCarte{
+	display:inline-block;
+}
+
+.columnTitle{
+	width:400px;
+	margin : -5px 5px 10px 5px;
+	box-shadow: 0px 0px 3px red;
+    border-radius: 15px;
+    background:rgb(99, 15, 15);
+    color: white;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 25px;    
+    font-family: 'Exo', sans-serif;
+
+}
+
+.column{
+    background:rgb(255, 255, 255);
+	width:400px;
+	margin : 20px 0px 10px 20px;
+    box-shadow: 3px 3px 5px red;
+    border-radius: 0px 0px 15px 15px;
+    padding:10px 15px 10px 15px;
+    text-align: justify;
+}
+
+.card-body{
+    text-align: justify;
+    border-radius: 15px;
+    width:auto;
+    background: rgb(218, 217, 217);
+    margin: 5px;
+}
+
+.card-title{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.header{
+    background-color:rgb(75, 75, 75);
+    box-shadow: 0px 3px 10px rgb(122, 122, 122);
+    border-radius: 0px 0px 15px 15px;
+    width: 100%;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(65, 57, 57);
+    color: white;
+    text-align: center;
+}
+
+.buttons{
+    text-align: center;
+}
+
+.colonneSmall{
+	max-width:30rem;
+}
+
+.newColumn{
+	overflow:auto;
+	max-height:750px;
+}
+
+::-webkit-scrollbar {
+    width: 0px; 
+    background: transparent;
+}
+
+/*////////////////////////////////////////////////// LOGIN //////////////////////////////////////////////////*/
+
+.headerLog {
+	position: absolute;
+	top: calc(50% - 50px);
+	left: calc(50% - 350px);
+}
+
+.headerLog div {
+	float: left;
+	color: rgb(255, 255, 255);
+	font-size: 40px;
+	font-weight: 200;
+}
+
+.headerLog div span {
+    color: #921818;
+}
+
+		.login {
+			position: absolute;
+			top: calc(50% - 75px);
+			left: calc(50% - 50px);
+			height: 150px;
+			width: 350px;
+			padding: 10px;
+
+		}
+
+		.login input[type=text] {
+			width: 250px;
+			height: 30px;
+			background: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.6);
+			border-radius: 2px;
+			color: rgb(255, 255, 255);
+			font-family: 'Exo', sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			padding: 4px;
+		}
+
+		.login input[type=password] {
+			width: 250px;
+			height: 30px;
+			background: transparent;
+			border: 1px solid rgba(255, 255, 255, 0.6);
+			border-radius: 2px;
+			color: rgb(255, 255, 255);
+			font-family: 'Exo', sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			padding: 4px;
+			margin-top: 10px;
+		}
+
+		.login input[type=button] {
+			width: 260px;
+			height: 35px;
+			background: rgb(122, 0, 0);
+			border: 1px solid rgb(131, 35, 35);
+			border-radius: 2px;
+			color: #ffffff;
+			font-family: 'Exo', sans-serif;
+			font-size: 16px;
+			font-weight: 400;
+			padding: 6px;
+			margin-top: 10px;
+		}
+
+		.login input[type=button]:hover {
+			opacity: 0.8;
+		}
+
+		.login input[type=button]:active {
+			opacity: 0.6;
+		}
+
+		.login input[type=text]:focus {
+			outline: none;
+			border: 1px solid rgba(255, 255, 255, 1);
+		}
+
+		.login input[type=password]:focus {
+			outline: none;
+			border: 1px solid rgba(255, 255, 255, 0.9);
+		}
+
+		.login input[type=button]:focus {
+			outline: none;
+		}
+
+		
