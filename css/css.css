@@ -28,6 +28,11 @@
 	padding-left: 45%;
 }
 
+.navbar{
+	background: rgb(0, 0, 0);
+	box-shadow: 1px 1px 10px red;
+}
+
 .btn-outline-dark:hover{
 	color:rgb(255, 255, 255);
 	background: black;
@@ -97,13 +102,9 @@
     text-align: center;
 }
 
-.buttons{
-    text-align: center;
-}
-
-.colonneSmall{
+/* .colonneSmall{
 	max-width:30rem;
-}
+} */
 
 .newColumn{
 	overflow:auto;
