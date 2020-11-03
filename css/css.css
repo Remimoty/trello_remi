@@ -102,10 +102,6 @@
     text-align: center;
 }
 
-/* .colonneSmall{
-	max-width:30rem;
-} */
-
 .newColumn{
 	overflow:auto;
 	max-height:600px;

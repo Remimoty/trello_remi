@@ -20,16 +20,16 @@ function addCard(nbColonne) {
     let divButton = document.createElement('div');
     let buttonModifier = document.createElement('button');
     let buttonSupprimer = document.createElement('button');
-    let buttonEtat = document.createElement('button');
+    let buttonCouleur = document.createElement('button');
 
     let titreTexte = document.createTextNode('TÂCHE');
     let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
     let modifier = document.createTextNode('MODIFIER');
     let supprimer = document.createTextNode('SUPPRIMER');
-    let etat = document.createTextNode('ETAT');
+    let couleur = document.createTextNode('COULEUR');
 
     conteneurCarte.id = 'card-body' + click;
-    cardBody.id = 'card-color'+ click;
+    cardBody.id = 'card-color' + click;
     cardBody.className = 'card-body';
     cardTitle.className = 'card-title';
     cardText.className = 'card-text';
@@ -37,13 +37,13 @@ function addCard(nbColonne) {
     buttonModifier.className = 'btn btn-warning';
     buttonSupprimer.className = 'btn btn-danger';
     buttonSupprimer.addEventListener("click", function () { deleteCard(conteneurCarte.id) });
-    buttonEtat.className = 'btn btn-light';
-    buttonEtat.addEventListener("click", function () { colorer(cardBody.id) });
+    buttonCouleur.className = 'btn btn-light';
+    buttonCouleur.addEventListener("click", function () { colorer(cardBody.id) });
 
     cardTitle.appendChild(titreTexte);
     cardText.appendChild(descriptionTexte);
     buttonSupprimer.appendChild(supprimer);
-    buttonEtat.appendChild(etat);
+    buttonCouleur.appendChild(couleur);
     buttonModifier.appendChild(modifier);
 
     cardBody.appendChild(cardTitle);
@@ -52,7 +52,7 @@ function addCard(nbColonne) {
 
     divButton.appendChild(buttonModifier);
     divButton.appendChild(buttonSupprimer);
-    divButton.appendChild(buttonEtat);
+    divButton.appendChild(buttonCouleur);
     conteneurCarte.appendChild(cardBody);
 
     let placement = document.getElementById(nbColonne);
@@ -129,11 +129,9 @@ function deleteColumn(idColonne) {
 }
 
 
-// function replaceCard(titre, texte){
-//     document.getElementById(titre)= document.getElementById(titre).value;
-//     document.getElementById(texte)= document.getElementById(contenu).value;
-
-// }
+function replaceCard(titre, texte) {
+    document.getElementById(titre).textContent = document.getElementById(texte).value;
+}
 
 function colorer(cardColor) {
     if (color == 1) {
