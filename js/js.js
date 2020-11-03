@@ -1,5 +1,6 @@
 let nbColonne = 1;
 let click = 1;
+var color = 1;
 
 function check(form) {
 
@@ -19,28 +20,30 @@ function addCard(nbColonne) {
     let divButton = document.createElement('div');
     let buttonModifier = document.createElement('button');
     let buttonSupprimer = document.createElement('button');
-    let buttonDeplacer = document.createElement('button');
+    let buttonEtat = document.createElement('button');
 
-    let titreTexte = document.createTextNode('Titre');
+    let titreTexte = document.createTextNode('TÂCHE');
     let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
     let modifier = document.createTextNode('MODIFIER');
     let supprimer = document.createTextNode('SUPPRIMER');
-    let deplacer = document.createTextNode('DÉPLACER');
-    
+    let etat = document.createTextNode('ETAT');
+
     conteneurCarte.id = 'card-body' + click;
+    cardBody.id = 'card-color'+ click;
     cardBody.className = 'card-body';
     cardTitle.className = 'card-title';
     cardText.className = 'card-text';
-    divButton.className = 'buttons'
+    divButton.className = 'buttons';
     buttonModifier.className = 'btn btn-warning';
     buttonSupprimer.className = 'btn btn-danger';
     buttonSupprimer.addEventListener("click", function () { deleteCard(conteneurCarte.id) });
-    buttonDeplacer.className = 'btn btn-info';
+    buttonEtat.className = 'btn btn-light';
+    buttonEtat.addEventListener("click", function () { colorer(cardBody.id) });
 
     cardTitle.appendChild(titreTexte);
     cardText.appendChild(descriptionTexte);
     buttonSupprimer.appendChild(supprimer);
-    buttonDeplacer.appendChild(deplacer);
+    buttonEtat.appendChild(etat);
     buttonModifier.appendChild(modifier);
 
     cardBody.appendChild(cardTitle);
@@ -49,7 +52,7 @@ function addCard(nbColonne) {
 
     divButton.appendChild(buttonModifier);
     divButton.appendChild(buttonSupprimer);
-    divButton.appendChild(buttonDeplacer);
+    divButton.appendChild(buttonEtat);
     conteneurCarte.appendChild(cardBody);
 
     let placement = document.getElementById(nbColonne);
@@ -69,7 +72,7 @@ function addColumn() {
     let boutonSupprimer = document.createElement('button');
     let boutonAjouter = document.createElement('button');
     let newColumn = document.createElement('div');
-    let cardBody = document.createElement('div');    
+    let cardBody = document.createElement('div');
     let divSupprimer = document.createElement('div');
 
     let titreColonne = document.createTextNode('Titre');
@@ -100,10 +103,10 @@ function addColumn() {
     column.appendChild(ajouterCarte);
     colSmall.appendChild(column);
     column.appendChild(newColumn);
-    column.appendChild(divSupprimer);    
+    column.appendChild(divSupprimer);
     divSupprimer.appendChild(boutonSupprimer);
     boutonSupprimer.appendChild(supprimer);
-    
+
 
     let nouvelleColonne = document.getElementById("colonne");
     colonne.appendChild(colSmall);
@@ -125,6 +128,24 @@ function deleteColumn(idColonne) {
     }
 }
 
-function coucou(){
-    console.log("coucou");
+
+// function replaceCard(titre, texte){
+//     document.getElementById(titre)= document.getElementById(titre).value;
+//     document.getElementById(texte)= document.getElementById(contenu).value;
+
+// }
+
+function colorer(cardColor) {
+    if (color == 1) {
+        document.getElementById(cardColor).style.borderColor = "#FFB200";
+        color++;
+    }
+    else if (color == 2) {
+        document.getElementById(cardColor).style.borderColor = "#42FF00";
+        color++;
+    }
+    else {
+        document.getElementById(cardColor).style.borderColor = "#FFFF00";
+        color = 1;
+    }
 }

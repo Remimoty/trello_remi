@@ -2,7 +2,7 @@
 /* How to create a login page with HTML CSS and Javascript */
 
 
-body{
+.body{
 	background: black;
 	font-family: 'Exo', sans-serif;
 	background-image: url('../LOGO.png') ;
@@ -11,7 +11,7 @@ body{
 }
 
 .row{
-    margin:0px;
+    margin:20px 100px;
 }
 
 .logo{
@@ -56,7 +56,8 @@ body{
     border-radius: 15px;
     width:auto;
     background: rgb(218, 217, 217);
-    margin: 5px;
+	margin: 5px;
+	border: solid 3px red;
 }
 
 .card-title{
@@ -90,10 +91,10 @@ body{
 
 .newColumn{
 	overflow:auto;
-	max-height:750px;
+	max-height:600px;
 }
 
 ::-webkit-scrollbar {
     width: 0px; 
-    background: transparent;
+    background: black;
 }
