@@ -23,10 +23,8 @@ body{
     color:rgb(245, 6, 6);
 }
 
-
-
 .ajouterColonne{
-
+	position: inherit;
 }
 
 .columnTitle{
@@ -99,97 +97,3 @@ body{
     width: 0px; 
     background: transparent;
 }
-
-/*////////////////////////////////////////////////// LOGIN //////////////////////////////////////////////////*/
-
-.headerLog {
-	position: absolute;
-	top: calc(50% - 50px);
-	left: calc(50% - 350px);
-}
-
-.headerLog div {
-	float: left;
-	color: rgb(255, 255, 255);
-	font-size: 40px;
-	font-weight: 200;
-}
-
-.headerLog div span {
-    color: #921818;
-}
-
-		.login {
-			position: absolute;
-			top: calc(50% - 75px);
-			left: calc(50% - 50px);
-			height: 150px;
-			width: 350px;
-			padding: 10px;
-
-		}
-
-		.login input[type=text] {
-			width: 250px;
-			height: 30px;
-			background: transparent;
-			border: 1px solid rgba(255, 255, 255, 0.6);
-			border-radius: 2px;
-			color: rgb(255, 255, 255);
-			font-family: 'Exo', sans-serif;
-			font-size: 16px;
-			font-weight: 400;
-			padding: 4px;
-		}
-
-		.login input[type=password] {
-			width: 250px;
-			height: 30px;
-			background: transparent;
-			border: 1px solid rgba(255, 255, 255, 0.6);
-			border-radius: 2px;
-			color: rgb(255, 255, 255);
-			font-family: 'Exo', sans-serif;
-			font-size: 16px;
-			font-weight: 400;
-			padding: 4px;
-			margin-top: 10px;
-		}
-
-		.login input[type=button] {
-			width: 260px;
-			height: 35px;
-			background: rgb(122, 0, 0);
-			border: 1px solid rgb(131, 35, 35);
-			border-radius: 2px;
-			color: #ffffff;
-			font-family: 'Exo', sans-serif;
-			font-size: 16px;
-			font-weight: 400;
-			padding: 6px;
-			margin-top: 10px;
-		}
-
-		.login input[type=button]:hover {
-			opacity: 0.8;
-		}
-
-		.login input[type=button]:active {
-			opacity: 0.6;
-		}
-
-		.login input[type=text]:focus {
-			outline: none;
-			border: 1px solid rgba(255, 255, 255, 1);
-		}
-
-		.login input[type=password]:focus {
-			outline: none;
-			border: 1px solid rgba(255, 255, 255, 0.9);
-		}
-
-		.login input[type=button]:focus {
-			outline: none;
-		}
-
-		
