@@ -28,11 +28,12 @@
 	padding-left: 45%;
 }
 
-.btn-outline-dark{
-	color:white;
+.btn-outline-dark:hover{
+	color:rgb(255, 255, 255);
+	background: black;
 }
 
-.btn-outline-dark:hover {
+.btn-outline-dark{
     opacity: 2;
 	color:rgb(0, 0, 0);
 	background-color: rgb(255, 255, 255);
