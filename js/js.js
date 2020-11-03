@@ -61,6 +61,7 @@ function addCard(nbColonne) {
 
 function addColumn() {
     let row = document.createElement('div');
+    let colonne = document.createElement('div');
     let colSmall = document.createElement('div');
     let column = document.createElement('div');
     let columnTitle = document.createElement('div');
@@ -69,11 +70,11 @@ function addColumn() {
     let boutonAjouter = document.createElement('button');
     let newColumn = document.createElement('div');
     let cardBody = document.createElement('div');    
-    let colonne = document.createElement('div');
+    let divSupprimer = document.createElement('div');
 
     let titreColonne = document.createTextNode('Titre');
-    let ajouter = document.createTextNode('AJOUTER');
-    let supprimer = document.createTextNode('SUPPRIMER');
+    let ajouter = document.createTextNode('AJOUTER UNE CARTE');
+    let supprimer = document.createTextNode('SUPPRIMER COLONNE');
 
 
     ajouterCarte.className = 'ajouterCarte';
@@ -84,8 +85,9 @@ function addColumn() {
     newColumn.id = 'column' + nbColonne;
     columnTitle.className = 'columnTitle';
     cardBody.className = 'card-body';
-    boutonAjouter.className = 'btn btn-success';
-    boutonSupprimer.className = 'btn btn-danger';
+    boutonAjouter.className = 'btn btn-success btn-sm btn-block';
+    boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
+    divSupprimer.className = 'supprimerColonne';
 
     boutonSupprimer.addEventListener("click", function () { deleteCard(colonne.id) });
     boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
@@ -95,12 +97,13 @@ function addColumn() {
     ajouterCarte.appendChild(boutonAjouter);
     columnTitle.appendChild(titreColonne);
     column.appendChild(columnTitle);
-
     column.appendChild(ajouterCarte);
     colSmall.appendChild(column);
-    boutonSupprimer.appendChild(supprimer);
-    ajouterCarte.appendChild(boutonSupprimer);
     column.appendChild(newColumn);
+    column.appendChild(divSupprimer);    
+    divSupprimer.appendChild(boutonSupprimer);
+    boutonSupprimer.appendChild(supprimer);
+    
 
     let nouvelleColonne = document.getElementById("colonne");
     colonne.appendChild(colSmall);

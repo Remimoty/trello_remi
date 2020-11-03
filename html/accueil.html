@@ -41,21 +41,18 @@
     </div>
 
     <div class="row" id="colonne">
-        
+
         <div id="idColonne">
             <div class="col-sm-3, colonneSmall">
                 <div class="column">
 
                     <div class="columnTitle" contentEditable="true" onchange="coucou()">Colonne</div>
                     <div class="ajouterCarte">
-                        <button type="button" class="btn btn-success" onclick="addCard('column')">
-                            AJOUTER
-                        </button>
-                        <button type="button" class="btn btn-danger" onclick="deleteColumn('idColonne')">
-                            SUPPRIMER
+                        <button type="button" class="btn btn-success btn-sm btn-block" onclick="addCard('column')">
+                            AJOUTER UNE CARTE
                         </button>
                     </div>
-                    
+
                     <div class="newColumn" id="column">
                         <div id="carte">
                             <div class="card-body">
@@ -75,7 +72,11 @@
                             </div>
                         </div>
                     </div>
-
+                    <div class="supprimerColonne">
+                        <button type="button" class="btn btn-danger btn-sm btn-block" onclick="deleteColumn('idColonne')">
+                            SUPPRIMER COLONNE
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -83,8 +84,8 @@
     </div>
 
     <div class="ajouterColonne">
-        <button type="button" class="btn btn-success" onclick=addColumn()>
-            AJOUTER
+        <button type="button" class="btn btn-dark" onclick=addColumn()>
+            AJOUTER COLONNE
         </button>
     </div>
 
@@ -93,4 +94,5 @@
     </div>
 
 </body>
+
 </html>
