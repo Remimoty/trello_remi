@@ -63,6 +63,7 @@ function addCard(nbColonne) {
 
 
 function addColumn() {
+if (nbColonne < 4){
     let row = document.createElement('div');
     let colonne = document.createElement('div');
     let colSmall = document.createElement('div');
@@ -113,6 +114,7 @@ function addColumn() {
     nouvelleColonne.appendChild(colonne);
     nbColonne++;
 }
+}
 
 function deleteCard(idCarte) {
     let supprimer = document.getElementById(idCarte);
@@ -129,8 +131,9 @@ function deleteColumn(idColonne) {
 }
 
 
-function replaceCard(titre, texte) {
+function replaceCard(titre, texte, contenu, texte2) {
     document.getElementById(titre).textContent = document.getElementById(texte).value;
+    document.getElementById(contenu).textContent = document.getElementById(texte2).value;
 }
 
 function colorer(cardColor) {

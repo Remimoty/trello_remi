@@ -48,7 +48,7 @@
             <div class="col-sm-3, colonneSmall">
                 <div class="column">
 
-                    <div class="columnTitle" contentEditable="true" onchange="coucou()">Colonne</div>
+                    <div class="columnTitle" contentEditable="true">Colonne</div>
                     <div class="ajouterCarte">
                         <button type="button" class="btn btn-success btn-sm btn-block" onclick="addCard('column')">
                             AJOUTER UNE CARTE
@@ -57,12 +57,14 @@
 
                     <div class="newColumn" id="column">
                         <input type="text" id="testText" />
+                        <input type="text" id="testText2" />
+
                         <div id="carte">
                             <div class="card-body" id="cardColor">
                                 <h5 class="card-title" id="titre">Tâche</h5>
                                 <p class="card-text" id="contenu">Je suis le texte</p>
                                 <div class="buttons">
-                                    <button type="button" class="btn btn-warning" onclick="replaceCard('contenu','testText')">
+                                    <button type="button" class="btn btn-warning" onclick="replaceCard('titre','testText', 'contenu', 'testText2')">
                                         MODIFIER
                                     </button>
                                     <button type="button" class="btn btn-danger" onclick="deleteCard('carte')">
