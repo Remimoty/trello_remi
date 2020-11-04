@@ -22,7 +22,7 @@ function addCard(numColonne) {
     let buttonModifier = document.createElement('button');
     let buttonSupprimer = document.createElement('button');
     let buttonCouleur = document.createElement('button');
-        let divDrag = document.createElement('div');
+    let divDrag = document.createElement('div');
     let titreTexte = document.createTextNode('TÂCHE');
     let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
     let modifier = document.createTextNode('MODIFIER');
@@ -34,9 +34,12 @@ function addCard(numColonne) {
     cardBody.id = 'card-color' + nbCard;
     cardBody.className = 'card-body';
     cardTitle.className = 'card-title';
+    cardTitle.id="ancienTitre"+nbCard;
+    cardText.id="ancienDescription"+nbCard;
     cardText.className = 'card-text';
     divButton.className = 'buttons';
     buttonModifier.className = 'btn btn-warning';
+    buttonModifier.addEventListener("click", function () { modifier(cardTitle.id, cardText.id)  });
     buttonSupprimer.className = 'btn btn-danger';
     buttonSupprimer.addEventListener("click", function () { deleteCard(conteneurCarte.id) });
     buttonCouleur.className = 'btn btn-light';
@@ -51,7 +54,6 @@ function addCard(numColonne) {
     cardBody.appendChild(cardText);
     cardBody.appendChild(divButton);
     divDrag.appendChild(cardBody);
-
     divButton.appendChild(buttonModifier);
     divButton.appendChild(buttonSupprimer);
     divButton.appendChild(buttonCouleur);
@@ -131,9 +133,16 @@ function deleteColumn(idColonne) {
     nbColonne--;
 }
 
-function replaceCard(titre, texte, contenu, texte2) {
-    document.getElementById(titre).textContent = document.getElementById(texte).value;
-    document.getElementById(contenu).textContent = document.getElementById(texte2).value;
+function replaceCard(titreAncien, contenuAncien, texteNouveau, contenuNouveau) {
+    document.getElementById(titreAncien).textContent = document.getElementById(texteNouveau).value;
+    document.getElementById(contenuAncien).textContent = document.getElementById(contenuNouveau).value;
+
+    let truc = document.getElementById("popup");
+    while (truc.firstchild){
+        truc.removechild(truc.firstchild);
+    }
+    document.getElementById("popup").remove();
+
 }
 
 function colorer(cardColor) {
@@ -170,4 +179,42 @@ function drag() {
         icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
         icon.closest(".portlet").find(".portlet-content").toggle();
     });
-};
+}
+
+function modifier(titreAncien, descriptionAncien){
+    let titre = titreAncien;
+    let description= descriptionAncien;
+
+    let popup = document.createElement('div');
+    let cadrePopup = document.createElement('div');
+    let formPopup = document.createElement('div');
+    let boutonModif = document.createElement('button');
+
+    let labelTitre = document.createElement('label');
+    let inputTitre = document.createElement('input');
+    let labelDescription = document.createElement('label');
+    let inputDescription = document.createElement('input');
+
+    popup.className="popup";
+    cadrePopup.className="cadrePopup";
+    formPopup.className="form-group";
+    boutonModif.className="btn btn-secondary";
+    inputTitre.className="form-control";
+    inputDescription.className="form-control";
+
+    inputTitre.id="titreNouveau";
+    inputDescription.id="descriptionNouveau";
+    popup.id="popup";
+
+    popup.appendChild(cadrePopup);
+    cadrePopup.appendChild(formPopup);
+    formPopup.appendChild(labelTitre);
+    formPopup.appendChild(inputTitre);
+    formPopup.appendChild(labelDescription);
+    formPopup.appendChild(inputDescription);
+    cadrePopup.appendChild(boutonModif);
+    document.getElementById("body").appendChild(popup);
+    console.log(titre,description, inputTitre.id, inputDescription.id);
+    boutonModif.addEventListener("click", function () { replaceCard(titre, description, inputTitre.id, inputDescription.id) });
+
+}

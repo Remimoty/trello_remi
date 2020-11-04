@@ -19,90 +19,87 @@
     <script type="text/javascript" src="../JS/js.js"></script>
 </head>
 
-<body class="body">
+<body class="body" id="body">
+    <div class="page">
+        <div class="header">
+            <nav class="navbar sticky-top justify-content-end">
+                <div>
+                    <a class="logo" href="accueil.html">
+                        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                            <path fill-rule="evenodd"
+                                d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+                        </svg>
+                    </a>
+                    <a class="logo" href="login.html">
+                        <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg>
+                    </a>
+                </div>
+            </nav>
+        </div>
 
-    <div class="header">
-        <nav class="navbar sticky-top justify-content-end">
-            <div>
-                <a class="logo" href="accueil.html">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-house" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
-                        <path fill-rule="evenodd"
-                            d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
-                    </svg>
-                </a>
-                <a class="logo" href="login.html">
-                    <svg width="3em" height="3em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                            d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
-                    </svg>
-                </a>
-            </div>
-        </nav>
-    </div>
+        <div class="row" id="colonne">
 
-    <div class="row" id="colonne">
+            <div id="idColonne">
+                <div class="col-sm-3, colonneSmall">
 
-        <div id="idColonne">
-            <div class="col-sm-3, colonneSmall">
+                    <div class="column">
+                        <div class="columnTitle" contentEditable="true">Colonne</div>
+                        <div class="ajouterCarte">
+                            <button type="button" class="btn btn-success btn-sm btn-block" onclick="addCard('column')">
+                                AJOUTER UNE CARTE
+                            </button>
+                        </div>
 
-                <div class="column">
-                    <div class="columnTitle" contentEditable="true">Colonne</div>
-                    <div class="ajouterCarte">
-                        <button type="button" class="btn btn-success btn-sm btn-block" onclick="addCard('column')">
-                            AJOUTER UNE CARTE
-                        </button>
-                    </div>
-
-                    <div class="newColumn drag" id="column">
-                        <input type="text" id="testText" />
-                        <input type="text" id="testText2" />
-
-                        <div class="portlet" id="carte ">
-                            <div class="portlet-header">
-                                <div class="card-body" id="cardColor">
-                                    <h5 class="card-title" id="titre">Tâche</h5>
-                                    <p class="card-text" id="contenu">Je suis le texte</p>
-                                    <div class="buttons">
-                                        <button type="button" class="btn btn-warning"
-                                            onclick="replaceCard('titre','testText', 'contenu', 'testText2')">
-                                            MODIFIER
-                                        </button>
-                                        <button type="button" class="btn btn-danger" onclick="deleteCard('carte')">
-                                            SUPPRIMER
-                                        </button>
-                                        <button type="button" class="btn btn-light" onclick="colorer('cardColor')">
-                                            COULEUR
-                                        </button>
+                        <div class="newColumn drag" id="column">
+                            <div class="portlet" id="carte">
+                                <div class="portlet-header">
+                                    <div class="card-body" id="cardColor">
+                                        <h5 class="card-title" id="titreAncien">Tâche</h5>
+                                        <p class="card-text" id="contenu">Je suis le texte</p>
+                                        <div class="buttons">
+                                            <button type="button" class="btn btn-warning" onclick="modifier('titreAncien','contenu')">
+                                                MODIFIER
+                                            </button>
+                                            <button type="button" class="btn btn-danger" onclick="deleteCard('carte')">
+                                                SUPPRIMER
+                                            </button>
+                                            <button type="button" class="btn btn-light" onclick="colorer('cardColor')">
+                                                COULEUR
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="supprimerColonne">
+                            <button type="button" class="btn btn-danger btn-sm btn-block"
+                                onclick="deleteColumn('idColonne')">
+                                SUPPRIMER COLONNE
+                            </button>
+                        </div>
                     </div>
-                    <div class="supprimerColonne">
-                        <button type="button" class="btn btn-danger btn-sm btn-block"
-                            onclick="deleteColumn('idColonne')">
-                            SUPPRIMER COLONNE
-                        </button>
-                    </div>
+
+
                 </div>
-
-
             </div>
+
         </div>
+        <nav class="navbar1 fixed-bottom">
+            <button type="button" class="btn btn-outline-dark" onclick=addColumn()>
+                AJOUTER COLONNE
+            </button>
+        </nav>
 
-    </div>
-    <nav class="navbar1 fixed-bottom">
-        <button type="button" class="btn btn-outline-dark" onclick=addColumn()>
-            AJOUTER COLONNE
-        </button>
-    </nav>
-
-    <div class="footer">
-        Copyright - LICENCE MDN - Motylicki Rémi
+        <div class="footer">
+            Copyright - LICENCE MDN - Motylicki Rémi
+        </div>
     </div>
 
 </body>
