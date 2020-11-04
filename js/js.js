@@ -1,5 +1,6 @@
-let nbColonne = 1;
-let click = 1;
+let nbColonne = 2;
+let numColonne = 2;
+let nbCard = 2;
 var color = 1;
 
 function check(form) {
@@ -12,7 +13,7 @@ function check(form) {
     }
 }
 
-function addCard(nbColonne) {
+function addCard(numColonne) {
     let conteneurCarte = document.createElement('div');
     let cardBody = document.createElement('div');
     let cardTitle = document.createElement('h5');
@@ -21,15 +22,16 @@ function addCard(nbColonne) {
     let buttonModifier = document.createElement('button');
     let buttonSupprimer = document.createElement('button');
     let buttonCouleur = document.createElement('button');
-
+        let divDrag = document.createElement('div');
     let titreTexte = document.createTextNode('TÂCHE');
     let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
     let modifier = document.createTextNode('MODIFIER');
     let supprimer = document.createTextNode('SUPPRIMER');
     let couleur = document.createTextNode('COULEUR');
 
-    conteneurCarte.id = 'card-body' + click;
-    cardBody.id = 'card-color' + click;
+    conteneurCarte.id = 'card-body' + nbCard;
+    divDrag.className = 'portlet-header';
+    cardBody.id = 'card-color' + nbCard;
     cardBody.className = 'card-body';
     cardTitle.className = 'card-title';
     cardText.className = 'card-text';
@@ -45,25 +47,25 @@ function addCard(nbColonne) {
     buttonSupprimer.appendChild(supprimer);
     buttonCouleur.appendChild(couleur);
     buttonModifier.appendChild(modifier);
-
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(divButton);
+    divDrag.appendChild(cardBody);
 
     divButton.appendChild(buttonModifier);
     divButton.appendChild(buttonSupprimer);
     divButton.appendChild(buttonCouleur);
-    conteneurCarte.appendChild(cardBody);
+    conteneurCarte.appendChild(divDrag);
 
-    let placement = document.getElementById(nbColonne);
+    let placement = document.getElementById(numColonne);
     placement.appendChild(conteneurCarte);
 
-    click++;
+    nbCard++;
+    drag();
 }
 
-
 function addColumn() {
-if (nbColonne < 4){
+if (nbColonne <= 4){
     let row = document.createElement('div');
     let colonne = document.createElement('div');
     let colSmall = document.createElement('div');
@@ -85,17 +87,17 @@ if (nbColonne < 4){
     row.className = 'row';
     colSmall.className = 'col-sm-3, colonneSmall';
     column.className = 'column';
-    newColumn.className = 'newColumn';
-    newColumn.id = 'column' + nbColonne;
+    newColumn.className = 'newColumn drag';
+    newColumn.id = 'column' + numColonne;
     columnTitle.className = 'columnTitle';
     cardBody.className = 'card-body';
     boutonAjouter.className = 'btn btn-success btn-sm btn-block';
     boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
     divSupprimer.className = 'supprimerColonne';
 
-    boutonSupprimer.addEventListener("click", function () { deleteCard(colonne.id) });
+    boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
     boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
-    colonne.id = 'idColonne' + nbColonne;
+    colonne.id = 'idColonne' + numColonne;
 
     boutonAjouter.appendChild(ajouter);
     ajouterCarte.appendChild(boutonAjouter);
@@ -113,23 +115,21 @@ if (nbColonne < 4){
     colonne.appendChild(colSmall);
     nouvelleColonne.appendChild(colonne);
     nbColonne++;
+    numColonne++;
+    drag();
 }
 }
 
 function deleteCard(idCarte) {
     let supprimer = document.getElementById(idCarte);
-    while (supprimer.firstChild) {
-        supprimer.removeChild(supprimer.firstChild);
-    }
+        supprimer.remove();  
 }
 
 function deleteColumn(idColonne) {
     let supprimerColonne = document.getElementById(idColonne);
-    while (supprimerColonne.firstChild) {
-        supprimerColonne.removeChild(supprimerColonne.firstChild);
-    }
+        supprimerColonne.remove();
+    nbColonne--;
 }
-
 
 function replaceCard(titre, texte, contenu, texte2) {
     document.getElementById(titre).textContent = document.getElementById(texte).value;
@@ -150,3 +150,24 @@ function colorer(cardColor) {
         color = 1;
     }
 }
+
+function drag() {
+    $(".drag").sortable({
+        connectWith: ".drag",
+        handle: ".portlet-header",
+        cancel: ".portlet-toggle",
+        placeholder: "portlet-placeholder ui-corner-all"
+    });
+
+    $(".portlet")
+        .addClass("ui-widget ui-widget-content ui-helper-clearfix ui-corner-all")
+        .find(".portlet-header")
+        .addClass("ui-widget-header ui-corner-all")
+
+
+    $(".portlet-toggle").click(function () {
+        var icon = $(this);
+        icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
+        icon.closest(".portlet").find(".portlet-content").toggle();
+    });
+};
