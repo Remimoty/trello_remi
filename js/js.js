@@ -67,54 +67,54 @@ function addCard(numColonne) {
 }
 
 function addColumn() {
-        let horizon = document.createElement('div');
-        let colonne = document.createElement('div');
-        let column = document.createElement('div');
-        let columnTitle = document.createElement('div');
-        let ajouterCarte = document.createElement('div');
-        let boutonSupprimer = document.createElement('button');
-        let boutonAjouter = document.createElement('button');
-        let newColumn = document.createElement('div');
-        let cardBody = document.createElement('div');
-        let divSupprimer = document.createElement('div');
+    let horizon = document.createElement('div');
+    let colonne = document.createElement('div');
+    let column = document.createElement('div');
+    let columnTitle = document.createElement('div');
+    let ajouterCarte = document.createElement('div');
+    let boutonSupprimer = document.createElement('button');
+    let boutonAjouter = document.createElement('button');
+    let newColumn = document.createElement('div');
+    let cardBody = document.createElement('div');
+    let divSupprimer = document.createElement('div');
 
-        let titreColonne = document.createTextNode('"Titre"');
-        let ajouter = document.createTextNode('AJOUTER UNE CARTE');
-        let supprimer = document.createTextNode('SUPPRIMER COLONNE');
+    let titreColonne = document.createTextNode('"Titre"');
+    let ajouter = document.createTextNode('AJOUTER UNE CARTE');
+    let supprimer = document.createTextNode('SUPPRIMER COLONNE');
 
-        horizon.className = 'horizon';
-        ajouterCarte.className = 'ajouterCarte';
-        column.className = 'column';
-        newColumn.className = 'newColumn drag';
-        newColumn.id = 'column' + numColonne;
-        columnTitle.className = 'columnTitle';
-        cardBody.className = 'card-body';
-        boutonAjouter.className = 'btn btn-success btn-sm btn-block';
-        boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
-        divSupprimer.className = 'supprimerColonne';
-        columnTitle.contentEditable = 'true';
+    horizon.className = 'horizon';
+    ajouterCarte.className = 'ajouterCarte';
+    column.className = 'column';
+    newColumn.className = 'newColumn drag';
+    newColumn.id = 'column' + numColonne;
+    columnTitle.className = 'columnTitle';
+    cardBody.className = 'card-body';
+    boutonAjouter.className = 'btn btn-success btn-sm btn-block';
+    boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
+    divSupprimer.className = 'supprimerColonne';
+    columnTitle.contentEditable = 'true';
 
-        boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
-        boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
-        colonne.id = 'idColonne' + numColonne;
+    boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
+    boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
+    colonne.id = 'idColonne' + numColonne;
 
-        boutonAjouter.appendChild(ajouter);
-        ajouterCarte.appendChild(boutonAjouter);
-        columnTitle.appendChild(titreColonne);
-        column.appendChild(columnTitle);
-        column.appendChild(ajouterCarte);
-        column.appendChild(newColumn);
-        column.appendChild(divSupprimer);
-        divSupprimer.appendChild(boutonSupprimer);
-        boutonSupprimer.appendChild(supprimer);
-        colonne.appendChild(column);
-        horizon.appendChild(colonne);
+    boutonAjouter.appendChild(ajouter);
+    ajouterCarte.appendChild(boutonAjouter);
+    columnTitle.appendChild(titreColonne);
+    column.appendChild(columnTitle);
+    column.appendChild(ajouterCarte);
+    column.appendChild(newColumn);
+    column.appendChild(divSupprimer);
+    divSupprimer.appendChild(boutonSupprimer);
+    boutonSupprimer.appendChild(supprimer);
+    colonne.appendChild(column);
+    horizon.appendChild(colonne);
 
-        let nouvelleColonne = document.getElementById("colonne");
-        nouvelleColonne.appendChild(horizon);
-        nbColonne++;
-        numColonne++;
-        drag();
+    let nouvelleColonne = document.getElementById("colonne");
+    nouvelleColonne.appendChild(horizon);
+    nbColonne++;
+    numColonne++;
+    drag();
 }
 
 function deleteCard(idCarte) {
