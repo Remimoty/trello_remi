@@ -8,8 +8,12 @@
     background-position: center;
 }
 
-.row{
-    margin:20px 100px;
+.main{
+    margin-bottom:5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    overflow: auto;
+    white-space:nowrap;
 }
 
 .logo{
@@ -23,7 +27,8 @@
 
 .navbar1{
 	padding-bottom: 30px;
-	padding-left: 45%;
+    padding-left: 45%;
+    padding-right: 45%;
 }
 
 .navbar{
@@ -68,6 +73,7 @@
     border-radius: 0px 0px 15px 15px;
     padding:10px 15px 10px 15px;
     text-align: justify;
+    
 }
 
 .card-body{
@@ -95,14 +101,14 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    background-color: rgb(65, 57, 57);
+    background-color: rgb(20, 20, 20);
     color: white;
     text-align: center;
 }
 
 .newColumn{
 	overflow:auto;
-	max-height:650px;
+	max-height:600px;
 }
 
 ::-webkit-scrollbar {
@@ -143,4 +149,9 @@
 
 label {
     margin-top: 20px;
+}
+
+.horizon{
+    display: inline-block;
+    vertical-align : top;
 }

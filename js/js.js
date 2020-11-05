@@ -67,10 +67,8 @@ function addCard(numColonne) {
 }
 
 function addColumn() {
-    if (nbColonne <= 4) {
-        let row = document.createElement('div');
+        let horizon = document.createElement('div');
         let colonne = document.createElement('div');
-        let colSmall = document.createElement('div');
         let column = document.createElement('div');
         let columnTitle = document.createElement('div');
         let ajouterCarte = document.createElement('div');
@@ -84,10 +82,8 @@ function addColumn() {
         let ajouter = document.createTextNode('AJOUTER UNE CARTE');
         let supprimer = document.createTextNode('SUPPRIMER COLONNE');
 
-
+        horizon.className = 'horizon';
         ajouterCarte.className = 'ajouterCarte';
-        row.className = 'row';
-        colSmall.className = 'col-sm-3, colonneSmall';
         column.className = 'column';
         newColumn.className = 'newColumn drag';
         newColumn.id = 'column' + numColonne;
@@ -107,20 +103,18 @@ function addColumn() {
         columnTitle.appendChild(titreColonne);
         column.appendChild(columnTitle);
         column.appendChild(ajouterCarte);
-        colSmall.appendChild(column);
         column.appendChild(newColumn);
         column.appendChild(divSupprimer);
         divSupprimer.appendChild(boutonSupprimer);
         boutonSupprimer.appendChild(supprimer);
-
+        colonne.appendChild(column);
+        horizon.appendChild(colonne);
 
         let nouvelleColonne = document.getElementById("colonne");
-        colonne.appendChild(colSmall);
-        nouvelleColonne.appendChild(colonne);
+        nouvelleColonne.appendChild(horizon);
         nbColonne++;
         numColonne++;
         drag();
-    }
 }
 
 function deleteCard(idCarte) {
@@ -239,7 +233,7 @@ function drag() {
     });
 }
 
-function deletePopup(popup) {
+function deletePopup() {
     let truc = document.getElementById("popup");
     while (truc.firstchild) {
         truc.removechild(truc.firstchild);
