@@ -34,12 +34,12 @@ function addCard(numColonne) {
     cardBody.id = 'card-color' + nbCard;
     cardBody.className = 'card-body';
     cardTitle.className = 'card-title';
-    cardTitle.id="ancienTitre"+nbCard;
-    cardText.id="ancienDescription"+nbCard;
+    cardTitle.id = "ancienTitre" + nbCard;
+    cardText.id = "ancienDescription" + nbCard;
     cardText.className = 'card-text';
     divButton.className = 'buttons';
     buttonModifier.className = 'btn btn-warning';
-    buttonModifier.addEventListener("click", function () { modifier(cardTitle.id, cardText.id)  });
+    buttonModifier.addEventListener("click", function () { modifier(cardTitle.id, cardText.id) });
     buttonSupprimer.className = 'btn btn-danger';
     buttonSupprimer.addEventListener("click", function () { deleteCard(conteneurCarte.id) });
     buttonCouleur.className = 'btn btn-light';
@@ -67,70 +67,70 @@ function addCard(numColonne) {
 }
 
 function addColumn() {
-if (nbColonne <= 4){
-    let row = document.createElement('div');
-    let colonne = document.createElement('div');
-    let colSmall = document.createElement('div');
-    let column = document.createElement('div');
-    let columnTitle = document.createElement('div');
-    let ajouterCarte = document.createElement('div');
-    let boutonSupprimer = document.createElement('button');
-    let boutonAjouter = document.createElement('button');
-    let newColumn = document.createElement('div');
-    let cardBody = document.createElement('div');
-    let divSupprimer = document.createElement('div');
+    if (nbColonne <= 4) {
+        let row = document.createElement('div');
+        let colonne = document.createElement('div');
+        let colSmall = document.createElement('div');
+        let column = document.createElement('div');
+        let columnTitle = document.createElement('div');
+        let ajouterCarte = document.createElement('div');
+        let boutonSupprimer = document.createElement('button');
+        let boutonAjouter = document.createElement('button');
+        let newColumn = document.createElement('div');
+        let cardBody = document.createElement('div');
+        let divSupprimer = document.createElement('div');
 
-    let titreColonne = document.createTextNode('"Titre"');
-    let ajouter = document.createTextNode('AJOUTER UNE CARTE');
-    let supprimer = document.createTextNode('SUPPRIMER COLONNE');
-
-
-    ajouterCarte.className = 'ajouterCarte';
-    row.className = 'row';
-    colSmall.className = 'col-sm-3, colonneSmall';
-    column.className = 'column';
-    newColumn.className = 'newColumn drag';
-    newColumn.id = 'column' + numColonne;
-    columnTitle.className = 'columnTitle';
-    cardBody.className = 'card-body';
-    boutonAjouter.className = 'btn btn-success btn-sm btn-block';
-    boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
-    divSupprimer.className = 'supprimerColonne';
-    columnTitle.contentEditable ="true";
-
-    boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
-    boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
-    colonne.id = 'idColonne' + numColonne;
-
-    boutonAjouter.appendChild(ajouter);
-    ajouterCarte.appendChild(boutonAjouter);
-    columnTitle.appendChild(titreColonne);
-    column.appendChild(columnTitle);
-    column.appendChild(ajouterCarte);
-    colSmall.appendChild(column);
-    column.appendChild(newColumn);
-    column.appendChild(divSupprimer);
-    divSupprimer.appendChild(boutonSupprimer);
-    boutonSupprimer.appendChild(supprimer);
+        let titreColonne = document.createTextNode('"Titre"');
+        let ajouter = document.createTextNode('AJOUTER UNE CARTE');
+        let supprimer = document.createTextNode('SUPPRIMER COLONNE');
 
 
-    let nouvelleColonne = document.getElementById("colonne");
-    colonne.appendChild(colSmall);
-    nouvelleColonne.appendChild(colonne);
-    nbColonne++;
-    numColonne++;
-    drag();
-}
+        ajouterCarte.className = 'ajouterCarte';
+        row.className = 'row';
+        colSmall.className = 'col-sm-3, colonneSmall';
+        column.className = 'column';
+        newColumn.className = 'newColumn drag';
+        newColumn.id = 'column' + numColonne;
+        columnTitle.className = 'columnTitle';
+        cardBody.className = 'card-body';
+        boutonAjouter.className = 'btn btn-success btn-sm btn-block';
+        boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
+        divSupprimer.className = 'supprimerColonne';
+        columnTitle.contentEditable = 'true';
+
+        boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
+        boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
+        colonne.id = 'idColonne' + numColonne;
+
+        boutonAjouter.appendChild(ajouter);
+        ajouterCarte.appendChild(boutonAjouter);
+        columnTitle.appendChild(titreColonne);
+        column.appendChild(columnTitle);
+        column.appendChild(ajouterCarte);
+        colSmall.appendChild(column);
+        column.appendChild(newColumn);
+        column.appendChild(divSupprimer);
+        divSupprimer.appendChild(boutonSupprimer);
+        boutonSupprimer.appendChild(supprimer);
+
+
+        let nouvelleColonne = document.getElementById("colonne");
+        colonne.appendChild(colSmall);
+        nouvelleColonne.appendChild(colonne);
+        nbColonne++;
+        numColonne++;
+        drag();
+    }
 }
 
 function deleteCard(idCarte) {
     let supprimer = document.getElementById(idCarte);
-        supprimer.remove();  
+    supprimer.remove();
 }
 
 function deleteColumn(idColonne) {
     let supprimerColonne = document.getElementById(idColonne);
-        supprimerColonne.remove();
+    supprimerColonne.remove();
     nbColonne--;
 }
 
@@ -139,7 +139,7 @@ function replaceCard(titreAncien, contenuAncien, texteNouveau, contenuNouveau) {
     document.getElementById(contenuAncien).textContent = document.getElementById(contenuNouveau).value;
 
     let truc = document.getElementById("popup");
-    while (truc.firstchild){
+    while (truc.firstchild) {
         truc.removechild(truc.firstchild);
     }
     document.getElementById("popup").remove();
@@ -182,9 +182,9 @@ function drag() {
     });
 }
 
-function modifier(titreAncien, descriptionAncien){
+function modifier(titreAncien, descriptionAncien) {
     let titre = titreAncien;
-    let description= descriptionAncien;
+    let description = descriptionAncien;
 
     let popup = document.createElement('div');
     let cadrePopup = document.createElement('div');
@@ -195,21 +195,21 @@ function modifier(titreAncien, descriptionAncien){
     let inputTitre = document.createElement('input');
     let labelDescription = document.createElement('label');
     let inputDescription = document.createElement('input');
-   
+
     let boutonModifTexte = document.createTextNode('Modifier');
     let labelTitreTexte = document.createTextNode('Titre');
     let labelDescriptionTexte = document.createTextNode('Description');
 
-    popup.className="popup";
-    cadrePopup.className="cadrePopup";
-    formPopup.className="form-group";
-    boutonModif.className="btn btn-secondary";
-    inputTitre.className="form-control";
-    inputDescription.className="form-control";
+    popup.className = "popup";
+    cadrePopup.className = "cadrePopup";
+    formPopup.className = "form-group";
+    boutonModif.className = "btn btn-secondary";
+    inputTitre.className = "form-control";
+    inputDescription.className = "form-control";
 
-    inputTitre.id="titreNouveau";
-    inputDescription.id="descriptionNouveau";
-    popup.id="popup";
+    inputTitre.id = "titreNouveau";
+    inputDescription.id = "descriptionNouveau";
+    popup.id = "popup";
 
     labelTitre.appendChild(labelTitreTexte);
     labelDescription.appendChild(labelDescriptionTexte);

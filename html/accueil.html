@@ -46,50 +46,6 @@
 
         <div class="row" id="colonne">
 
-            <div id="idColonne">
-                <div class="col-sm-3, colonneSmall">
-
-                    <div class="column">
-                        <div class="columnTitle" contentEditable="true">Colonne</div>
-                        <div class="ajouterCarte">
-                            <button type="button" class="btn btn-success btn-sm btn-block" onclick="addCard('column')">
-                                AJOUTER UNE CARTE
-                            </button>
-                        </div>
-
-                        <div class="newColumn drag" id="column">
-                            <div class="portlet" id="carte">
-                                <div class="portlet-header">
-                                    <div class="card-body" id="cardColor">
-                                        <h5 class="card-title" id="titreAncien">Tâche</h5>
-                                        <p class="card-text" id="contenu">Je suis le texte</p>
-                                        <div class="buttons">
-                                            <button type="button" class="btn btn-warning" onclick="modifier('titreAncien','contenu')">
-                                                MODIFIER
-                                            </button>
-                                            <button type="button" class="btn btn-danger" onclick="deleteCard('carte')">
-                                                SUPPRIMER
-                                            </button>
-                                            <button type="button" class="btn btn-light" onclick="colorer('cardColor')">
-                                                COULEUR
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="supprimerColonne">
-                            <button type="button" class="btn btn-danger btn-sm btn-block"
-                                onclick="deleteColumn('idColonne')">
-                                SUPPRIMER COLONNE
-                            </button>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-
         </div>
         <nav class="navbar1 fixed-bottom">
             <button type="button" class="btn btn-outline-dark" onclick=addColumn()>
