@@ -74,7 +74,7 @@
     text-align: justify;
     border-radius: 15px;
     width:auto;
-    background: rgb(218, 217, 217);
+    background: rgba(218, 217, 217, 0.815);
 	margin: 5px;
 	border: solid 3px red;
 }

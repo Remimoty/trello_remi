@@ -60,7 +60,7 @@ body{
 
 .login input[type=password]:focus {
 	outline: none;
-	border: 1px solid rgba(255, 255, 255, 0.9);
+	border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .login input[type=button]:focus {
@@ -73,7 +73,6 @@ body{
 	width: 100%;
 	height: 100%;
 	filter: blur(15px) opacity(20%) contrast(200%);
-	
 }
 
 .contenu {

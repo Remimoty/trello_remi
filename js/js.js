@@ -24,7 +24,7 @@ function addCard(numColonne) {
     let buttonCouleur = document.createElement('button');
     let divDrag = document.createElement('div');
     let titreTexte = document.createTextNode('TÂCHE');
-    let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
+    let descriptionTexte = document.createTextNode('DESCRIPTION');
     let modifier1 = document.createTextNode('MODIFIER');
     let supprimer = document.createTextNode('SUPPRIMER');
     let couleur = document.createTextNode('COULEUR');
@@ -158,6 +158,7 @@ function modifier(titreAncien, descriptionAncien) {
     let cadrePopup = document.createElement('div');
     let formPopup = document.createElement('div');
     let boutonModif = document.createElement('button');
+    let boutonSupprimer1 = document.createElement('button');
 
     let labelTitre = document.createElement('label');
     let inputTitre = document.createElement('input');
@@ -165,6 +166,7 @@ function modifier(titreAncien, descriptionAncien) {
     let inputDescription = document.createElement('input');
 
     let boutonModifTexte = document.createTextNode('Modifier');
+    let boutonSupprimerPopup = document.createTextNode('Annuler');
     let labelTitreTexte = document.createTextNode('Titre');
     let labelDescriptionTexte = document.createTextNode('Description');
 
@@ -172,6 +174,7 @@ function modifier(titreAncien, descriptionAncien) {
     cadrePopup.className = "cadrePopup";
     formPopup.className = "form-group";
     boutonModif.className = "btn btn-secondary";
+    boutonSupprimer1.className = "btn btn-danger";
     inputTitre.className = "form-control";
     inputDescription.className = "form-control";
 
@@ -182,6 +185,7 @@ function modifier(titreAncien, descriptionAncien) {
     labelTitre.appendChild(labelTitreTexte);
     labelDescription.appendChild(labelDescriptionTexte);
     boutonModif.appendChild(boutonModifTexte);
+    boutonSupprimer1.appendChild(boutonSupprimerPopup);
 
     popup.appendChild(cadrePopup);
     cadrePopup.appendChild(formPopup);
@@ -190,10 +194,11 @@ function modifier(titreAncien, descriptionAncien) {
     formPopup.appendChild(labelDescription);
     formPopup.appendChild(inputDescription);
     cadrePopup.appendChild(boutonModif);
+    cadrePopup.appendChild(boutonSupprimer1);
     document.getElementById("body").appendChild(popup);
     boutonModif.addEventListener("click", function () { replaceCard(titre, description, inputTitre.id, inputDescription.id) });
+    boutonSupprimer1.addEventListener("click", function () { deletePopup(popup) });
 }
-
 
 function replaceCard(titreAncien, contenuAncien, texteNouveau, contenuNouveau) {
     if (document.getElementById(texteNouveau).value !== '' && document.getElementById(contenuNouveau).value !== '') {
@@ -232,4 +237,12 @@ function drag() {
         icon.toggleClass("ui-icon-minusthick ui-icon-plusthick");
         icon.closest(".portlet").find(".portlet-content").toggle();
     });
+}
+
+function deletePopup(popup) {
+    let truc = document.getElementById("popup");
+    while (truc.firstchild) {
+        truc.removechild(truc.firstchild);
+    }
+    document.getElementById("popup").remove();
 }
