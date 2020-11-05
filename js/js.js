@@ -1,11 +1,11 @@
 let nbColonne = 1;
 let numColonne = 2;
 let nbCard = 2;
-var color = 1;
+let color = 1;
 
 function check(form) {
 
-    if (form.userID.value == "" && form.userMDP.value == "") {
+    if (form.userID.value !== "" && form.userMDP.value !== "") {
         window.open("accueil.html")
     }
     else {
@@ -134,18 +134,6 @@ function deleteColumn(idColonne) {
     nbColonne--;
 }
 
-function replaceCard(titreAncien, contenuAncien, texteNouveau, contenuNouveau) {
-    document.getElementById(titreAncien).textContent = document.getElementById(texteNouveau).value;
-    document.getElementById(contenuAncien).textContent = document.getElementById(contenuNouveau).value;
-
-    let truc = document.getElementById("popup");
-    while (truc.firstchild) {
-        truc.removechild(truc.firstchild);
-    }
-    document.getElementById("popup").remove();
-
-}
-
 function colorer(cardColor) {
     if (color == 1) {
         document.getElementById(cardColor).style.borderColor = "#FFB200";
@@ -162,6 +150,7 @@ function colorer(cardColor) {
 }
 
 function modifier(titreAncien, descriptionAncien) {
+
     let titre = titreAncien;
     let description = descriptionAncien;
 
@@ -205,6 +194,25 @@ function modifier(titreAncien, descriptionAncien) {
     boutonModif.addEventListener("click", function () { replaceCard(titre, description, inputTitre.id, inputDescription.id) });
 }
 
+
+function replaceCard(titreAncien, contenuAncien, texteNouveau, contenuNouveau) {
+    if (document.getElementById(texteNouveau).value !== '' && document.getElementById(contenuNouveau).value !== '') {
+
+        document.getElementById(titreAncien).textContent = document.getElementById(texteNouveau).value;
+        document.getElementById(contenuAncien).textContent = document.getElementById(contenuNouveau).value;
+
+        let truc = document.getElementById("popup");
+        while (truc.firstchild) {
+            truc.removechild(truc.firstchild);
+        }
+        document.getElementById("popup").remove();
+    }
+    else {
+        document.getElementById(contenuNouveau).style.borderColor = 'red';
+        document.getElementById(texteNouveau).style.borderColor = 'red';
+    }
+}
+
 function drag() {
     $(".drag").sortable({
         connectWith: ".drag",
@@ -225,4 +233,3 @@ function drag() {
         icon.closest(".portlet").find(".portlet-content").toggle();
     });
 }
-
