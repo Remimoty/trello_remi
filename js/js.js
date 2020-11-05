@@ -25,7 +25,7 @@ function addCard(numColonne) {
     let divDrag = document.createElement('div');
     let titreTexte = document.createTextNode('TÂCHE');
     let descriptionTexte = document.createTextNode(document.getElementById('card-text'));
-    let modifier = document.createTextNode('MODIFIER');
+    let modifier1 = document.createTextNode('MODIFIER');
     let supprimer = document.createTextNode('SUPPRIMER');
     let couleur = document.createTextNode('COULEUR');
 
@@ -49,7 +49,7 @@ function addCard(numColonne) {
     cardText.appendChild(descriptionTexte);
     buttonSupprimer.appendChild(supprimer);
     buttonCouleur.appendChild(couleur);
-    buttonModifier.appendChild(modifier);
+    buttonModifier.appendChild(modifier1);
     cardBody.appendChild(cardTitle);
     cardBody.appendChild(cardText);
     cardBody.appendChild(divButton);

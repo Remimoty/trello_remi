@@ -139,3 +139,7 @@
     border-radius: 0px 0px 15px 25px;
     padding: 50px;
 }
+
+.drag{
+    padding-bottom: 3px;
+}
