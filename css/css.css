@@ -1,6 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
-/* How to create a login page with HTML CSS and Javascript */
-
 
 .body{
 	background: black;
@@ -104,12 +102,11 @@
 
 .newColumn{
 	overflow:auto;
-	max-height:600px;
+	max-height:650px;
 }
 
 ::-webkit-scrollbar {
     width: 0px; 
-    background: black;
 }
 
 .page{
@@ -141,7 +138,7 @@
 }
 
 .drag{
-    padding-bottom: 3px;
+    padding-bottom: 5px;
 }
 
 label {
