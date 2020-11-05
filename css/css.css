@@ -132,9 +132,9 @@
 .cadrePopup{
     z-index:2;
     position: absolute;
-    background-color:#ffffffb2;
+    background-color:#ffffffe8;
     width: 40%;
-    height: 50%;
+    height: 35%;
     box-shadow: 0px 0px 10px orange;
     border-radius: 0px 0px 15px 25px;
     padding: 50px;
@@ -142,4 +142,8 @@
 
 .drag{
     padding-bottom: 3px;
+}
+
+label {
+    margin-top: 20px;
 }

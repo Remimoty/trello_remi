@@ -80,7 +80,7 @@ if (nbColonne <= 4){
     let cardBody = document.createElement('div');
     let divSupprimer = document.createElement('div');
 
-    let titreColonne = document.createTextNode('Titre');
+    let titreColonne = document.createTextNode('"Titre"');
     let ajouter = document.createTextNode('AJOUTER UNE CARTE');
     let supprimer = document.createTextNode('SUPPRIMER COLONNE');
 
@@ -96,6 +96,7 @@ if (nbColonne <= 4){
     boutonAjouter.className = 'btn btn-success btn-sm btn-block';
     boutonSupprimer.className = 'btn btn-danger btn-sm btn-block';
     divSupprimer.className = 'supprimerColonne';
+    columnTitle.contentEditable ="true";
 
     boutonSupprimer.addEventListener("click", function () { deleteColumn(colonne.id) });
     boutonAjouter.addEventListener("click", function () { addCard(newColumn.id) });
@@ -194,6 +195,10 @@ function modifier(titreAncien, descriptionAncien){
     let inputTitre = document.createElement('input');
     let labelDescription = document.createElement('label');
     let inputDescription = document.createElement('input');
+   
+    let boutonModifTexte = document.createTextNode('Modifier');
+    let labelTitreTexte = document.createTextNode('Titre');
+    let labelDescriptionTexte = document.createTextNode('Description');
 
     popup.className="popup";
     cadrePopup.className="cadrePopup";
@@ -206,6 +211,10 @@ function modifier(titreAncien, descriptionAncien){
     inputDescription.id="descriptionNouveau";
     popup.id="popup";
 
+    labelTitre.appendChild(labelTitreTexte);
+    labelDescription.appendChild(labelDescriptionTexte);
+    boutonModif.appendChild(boutonModifTexte);
+
     popup.appendChild(cadrePopup);
     cadrePopup.appendChild(formPopup);
     formPopup.appendChild(labelTitre);
@@ -214,7 +223,5 @@ function modifier(titreAncien, descriptionAncien){
     formPopup.appendChild(inputDescription);
     cadrePopup.appendChild(boutonModif);
     document.getElementById("body").appendChild(popup);
-    console.log(titre,description, inputTitre.id, inputDescription.id);
     boutonModif.addEventListener("click", function () { replaceCard(titre, description, inputTitre.id, inputDescription.id) });
-
 }
